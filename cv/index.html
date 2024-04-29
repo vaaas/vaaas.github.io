@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta charset='utf-8'/>
+	<title>Vasileios Pasioliokis - Software Developer</title>
+	<style>
+		/* basic */
+		html {
+			font-size: 4mm;
+			margin: auto;
+			width: 210mm;
+			line-height: 1.5em;
+			font-family: serif;
+			color: #655;
+		}
+
+		body { margin: 15mm; }
+
+		header {
+			font-weight: bold;
+			color: #000;
+			grid-area: header;
+		}
+
+		ul {
+			margin: 0;
+			padding-left: 0;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		a:hover { text-decoration: underline; }
+
+		h1 {
+			font-size: 2rem;
+			margin: 0;
+			line-height: 1.5em;
+		}
+
+		h2 {
+			font-size: 1.50rem;
+			font-weight: normal;
+			margin: 0;
+			line-height: 1.5em;
+			color: #655;
+		}
+
+		b { color: #000; }
+
+		.hide { display: none !important; }
+
+		/* primary section */
+		body > section {
+			position: relative;
+			display: grid;
+			grid-template-areas:
+				'header header'
+				'left right'
+				'footer footer';
+		}
+
+		body > section > section > section + section { margin-top: 1rem; }
+
+		body > section > section { padding: 1rem 0; }
+
+		/* primary header */
+		body > section > header {
+			grid-area: header;
+			padding-bottom: 1rem;
+		}
+
+		/* nav */
+		nav {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			line-height: 1.5em;
+		}
+
+		nav > a + a { margin-left: 1em; }
+
+		/* sidebar */
+		.sidebar {
+			max-width: 65mm;
+			grid-area: left;
+		}
+
+		.buzzwords div span {
+			display: inline-block;
+			width: 7em;
+		}
+
+		body > section > section > header:first-child {
+			font-size: 1.25rem;
+			line-height: 1.5em;
+		}
+
+		.contact { margin-top: 1rem; }
+		.contact > div > * { display: inline-block; }
+		.contact > div > b { width: 5rem; }
+
+		/* xp */
+		.xp {
+			grid-area: right;
+			padding-left: 2rem;
+		}
+
+		.xp > section > header {
+			display: flex;
+			justify-content: space-between;
+			font-weight: inherit;
+		}
+		.xp > section > header b { font-size: 1.1rem; }
+		.xp > section > header i {
+			font-size: 0.8rem;
+			white-space: nowrap;
+		}
+
+		/* footer */
+		footer {
+			grid-area: footer;
+			padding-top: 1rem;
+		}
+
+		/* media queries */
+		@media print {
+			body { margin: 0; }
+			.xp { min-height: 265mm; }
+			nav { display: none; }
+			footer {
+				font-style: italic;
+				text-align: center;
+			}
+		}
+	</style>
+
+	<script>
+		function set_class(el, cls, state) {
+			if (state) el.classList.add(cls)
+			else el.classList.remove(cls)
+		}
+
+		function show(id) {
+			for (const x of document.querySelectorAll('body > section'))
+				set_class(x, 'hide', x.id !== id)
+		}
+	</script>
+</head>
+
+<body>
+	<section id='el' class='hide'>
+		<nav>
+			<a href='#' onclick='show("en")'>EN</a>
+			<a href='#' onclick='show("el")''>EL</a>
+		</nav>
+
+		<header>
+			<h1>Βασίλειος Πασιαλιώκης</h1>
+			<h2>Προγραμματιστής λογισμικού (full stack)</h2>
+		</header>
+
+		<section class='sidebar'>
+			<section class='info'>
+				<div>Είμαι προγραμματιστής λογισμικού και devops με εξειδίκευση σε λογισμικό με μεγάλες ανάγκες επειδόσεων και ορθής λειτουργίας. Γνωρίζω άριστα τα node.js, Python, και PHP με συναρτησιακό στυλ.</div>
+
+				<p><strong>Εκπληρωμένες Στρατιωτικές Υποχρεώσεις</strong></p>
+
+				<div class='contact'>
+					<div><b>Γεννηθείς</b> 1992</div>
+					<div><b>Τηλ.</b> <a href='tel:+306955018104'>+30 695 501 8104</a></div>
+					<div><b>Email</b> <a href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a></div>
+					<div><b>Github</b> <a href='https://github.com/vaaas'>github.com/vaaas</a></div>
+				</div>
+			</section>
+
+			<section class='education'>
+				<header>Μόρφωση</header>
+				<div>
+					Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης
+					<br/>
+					<i>Ηλεκτρολόγος Μηχανικός &amp; Μηχανικός Υπολογιστών</i>
+				</div>
+			</section>
+
+			<section class='buzzwords'>
+				<header>Ικανότητες</header>
+				<div>
+					<span>Javascript</span>
+					<span>Typescript</span>
+					<span>node.js</span>
+					<span>Mentoring</span>
+					<span>Vue</span>
+					<span>React</span>
+					<span>Nuxt</span>
+					<span>(S)CSS</span>
+					<span>PHP</span>
+					<span>Laravel</span>
+					<span>SQL</span>
+					<span>Lisp</span>
+					<span>Python</span>
+					<span>Linux</span>
+					<span>bash</span>
+					<span>Git</span>
+					<span>Docker</span>
+					<span>AWS</span>
+				</div>
+			</section>
+		</section>
+
+		<section class='xp'>
+			<section>
+				<header>
+					<b>Kaizen Gaming</b>
+					<i>2024 — now</i>
+				</header>
+				<div>Stack: Vue, Vuex, Tailwind</div>
+				<ul>
+					<li>Υλοποίηση νέων λειτουργιών για το live στοίχημα</li>
+					<li>Αμφίδρομη επικοινωνία σε πραγματικό χρόνο μέσω websocket</li>
+					<li>Συναρτησιακός και πλήρως unit tested κώδικας</li>
+					<li>Mentoring νέων προγραμματιστών</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Aylo</b>
+					<i>2023 — 2024</i>
+				</header>
+				<div>Stack: PHP + Larvel, React, MySQL &amp; ElasticSearch</div>
+				<ul>
+					<li>Συντήρηση υπάρχοντα κώδικα PHP (Zend Framework 1)</li>
+					<li>Μεταφορά μονολιθικής εφαρμογής PHP σε μικροϋπηρεσίες</li>
+					<li>Βελτιώσεις στην αναζήτηση περιεχομένου</li>
+					<li>Unit testing μέσω PHPUnit, έλεγχος τύπων μέσω PHPStan</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Phenometry — phi3d.com</b>
+					<i>2022 — 2023</i>
+				</header>
+				<div>Stack: node.js &amp; Express, Typescript &amp; Vue, wasm, AWS</div>
+				<ul>
+					<li>Σημαντικές μετατροπές υπάρχοντα κώδικα σε βέλτιστες πρακτικές: Vue 3, Typescript, SWC, eslint, dependency injection</li>
+					<li>Κάλυψη 80+% της βάσης κώδικα με unit test</li>
+					<li>Μείωση μεγέθους αρχικής φόρτωσης κατά 95%</li>
+					<li>Μεταφορά του Phi σε συσκευές tablet, με οθόνη αφής και ψηφιακές γραφίδες</li>
+					<li>Υλοποίηση πληρωμών μέσω Stripe</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Mattermost</b>
+					<i>2022</i>
+				</header>
+				<div>Stack: JS, TS, Electron, React</div>
+				<ul>
+					<li>Συνεισφορές ως εξωτερικός συνεργάτης για την επίλυση σφαλμάτων της desktop εφαρμογής σε περιβάλλον Linux</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Doppler SA</b>
+					<i>2020 — 2022</i>
+				</header>
+				<div>Stack: PHP &amp; Laravel, JS &amp; Vue</div>
+				<ul>
+					<li>Αρχιτεκτόνηση διαδικασίας continuous integration</li>
+					<li>Ανάπτυξη εργαλείου αυτόματης παραγγελιοληψίας ταμπλό business intelligence</li>
+					<li>Εκπαίδευση νέων υπαλλήλων σε ανάπτυξη λογισμικού ιστού</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Organization for Transformative Works</b>
+					<i>2015 — 2021</i>
+				</header>
+				<div>Stack: Wordpress, Ruby on Rails, JS &amp; jQuery</div>
+				<ul>
+					<li>Ίδρυση και συντονισμός της ελληνικής μεταφραστικής ομάδας</li>
+					<li>Διαχείριση υλικού μέσω πλατφόρμας Wordpress</li>
+					<li>Οργάνωση οντολογίας μεταδεδομένων υλικού χρηστών</li>
+					<li>Προγραμματισμός διεπαφής χρήστη</li>
+				</ul>
+			</section>
+
+			<section>
+				<header><b>Λοιπά &amp; Χομπυστικά Project</b></header>
+				<ul>
+					<li>5 χρόνια προγραμματισμού σε βιντεοπαιχνίδια (Python, SDL, Panda3d)</li>
+					<li>3 χρόνια προγραμματισμού σε εφαρμογές Linux (GTK3, Qt4, xcb, xlib)</li>
+					<li>Και μια μικρή εμπειρία προγραμματισμού σε embedded λειτουργικά συστήματα (ChibiOS) και μεταγλωττιστές (Scheme Lisp &rarr; Javascript)</li>
+			</section>
+		</section>
+
+		<footer>
+			Αυτό το έγγραφο διατίθεται και online:
+			<a href='https://vaaas.github.io/cv/'>https://vaaas.github.io/cv/</a>
+		</footer>
+	</section>
+
+	<section id='en'>
+		<nav>
+			<a href='#' onclick='show("en")'>EN</a>
+			<a href='#' onclick='show("el")'>EL</a>
+		</nav>
+
+		<header>
+			<h1>Vasileios Pasialiokis</h1>
+			<h2>Full stack developer</h2>
+		</header>
+
+		<section class='sidebar'>
+			<section class='info'>
+				<div>I'm a developer and IT operator with a focus on software sensitive to correctness and performance. I'm fluent in node.js, Python, and PHP in functional style.</div>
+
+				<div class='contact'>
+					<div><b>Phone</b> <a href='tel:+306955018104'>+30 695 501 8104</a></div>
+					<div><b>Email</b> <a href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a></div>
+					<div><b>Github</b> <a href='https://github.com/vaaas'>github.com/vaaas</a></div>
+				</div>
+			</section>
+
+			<section class='education'>
+				<header>Education</header>
+				<div>
+					Aristotle University of Thessaloniki
+					<br/>
+					<i>Computer Engineering</i>
+				</div>
+
+			</section>
+
+			<section class='buzzwords'>
+				<header>Skills</header>
+
+				<div>
+					<span>Javascript</span>
+					<span>Typescript</span>
+					<span>node.js</span>
+					<span>Mentoring</span>
+					<span>Vue</span>
+					<span>React</span>
+					<span>Nuxt</span>
+					<span>(S)CSS</span>
+					<span>PHP</span>
+					<span>Laravel</span>
+					<span>SQL</span>
+					<span>Lisp</span>
+					<span>Python</span>
+					<span>Linux</span>
+					<span>bash</span>
+					<span>Git</span>
+					<span>Docker</span>
+					<span>AWS</span>
+				</div>
+			</section>
+		</section>
+
+		<section class='xp'>
+			<section>
+				<header>
+					<b>Kaizen Gaming</b>
+					<i>2024 — now</i>
+				</header>
+				<div>Stack: Vue, Vuex, Tailwind</div>
+				<ul>
+					<li>Implementing new features &amp; maintenance for live betting</li>
+					<li>Two-way, realtime websocket communication</li>
+					<li>Composable, functional, and 100% unit tested code</li>
+					<li>Mentoring of junior developers in modern web development</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Aylo</b>
+					<i>2023 — 2024</i>
+				</header>
+				<div>Stack: PHP + Larvel, React, MySQL &amp; ElasticSearch</div>
+				<ul>
+					<li>Maintenance of legacy PHP code (Zend Framework 1)</li>
+					<li>Migration of monolithic PHP code into microservices</li>
+					<li>Improvements on content search functionality</li>
+					<li>Unit testing through PHPUnit, type checking through PHPStan</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Phenometry — phi3d.com</b>
+					<i>2022 — 2023</i>
+				</header>
+				<div>Stack: node.js &amp; Express, Typescript &amp; Vue, wasm, AWS</div>
+				<ul>
+					<li>Significant refactoring of legacy code into modern best practices: Vue 3, Typescript, SWC, eslint, dependency injection</li>
+					<li>Added 80+% test coverage</li>
+					<li>Reduced initial load size by 95%</li>
+					<li>Port of Phi for tablet, touch, and pen interfaces</li>
+					<li>Integration of Stripe payments</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Mattermost</b>
+					<i>2022</i>
+				</header>
+				<div>Stack: JS, TS, Electron, React</div>
+				<ul>
+					<li>Paid contributor for Linux-specific bugs in the Electron application</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Doppler SA</b>
+					<i>2020 — 2022</i>
+				</header>
+				<div>Stack: PHP &amp; Laravel, JS &amp; Vue</div>
+				<ul>
+					<li>Architected a continuous integration pipeline</li>
+					<li>Developed an order automation tool and a BI dashboard for our ERP</li>
+					<li>Mentored new employees in modern Linux web development</li>
+				</ul>
+			</section>
+
+			<section>
+				<header>
+					<b>Organization for Transformative Works</b>
+					<i>2015 — 2021</i>
+				</header>
+				<div>Stack: Wordpress, Ruby on Rails, JS &amp; jQuery</div>
+				<ul>
+					<li>Founded and coordinated the Greek translation team</li>
+					<li>Content management through Wordpress</li>
+					<li>Wrangling of tag and metadata ontologies on user content</li>
+					<li>User interface programming</li>
+				</ul>
+			</section>
+
+			<section>
+				<header><b>Assorted &amp; Hobbyist Projects</b></header>
+				<ul>
+					<li>5 years of video game development (Python, SDL, Panda3d)</li>
+					<li>3 years of native Linux application development (GTK3, Qt4, xcb, xlib)</li>
+					<li>And a little bit of experience in embedded operating systems (ChibiOS) and compilers (Scheme Lisp &rarr; Javascript)</li>
+			</section>
+		</section>
+
+		<footer>
+			This document is available online:
+			<a href='https://vaaas.github.io/cv/'>https://vaaas.github.io/cv/</a>
+		</footer>
+	</section>
+</body>
+</html>

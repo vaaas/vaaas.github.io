@@ -74,6 +74,7 @@ body { background: #fed; }
 .flex-wrap { flex-wrap: wrap; }
 .invisible { visibility: hidden; }
 .text-lowercase { text-transform: lowercase; }
+.no-select { user-select: none; }
 
 @media screen {
 	html { font-size: 20px; }

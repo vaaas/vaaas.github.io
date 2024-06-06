@@ -15,27 +15,27 @@ require('utils.php');
 		<?php require('fragments/header.php'); ?>
 
 		<div class='gap-8 flex-row items-baseline'>
-			<div class='text-s'>(01)</div>
+			<div class='text-s no-select'>(01)</div>
 
 			<?php require('fragments/experience.php'); ?>
 		</div>
 
 		<div class='gap-8 flex-row items-baseline'>
-			<div class='text-s'>(02)</div>
+			<div class='text-s no-select'>(02)</div>
 
 			<?php require('fragments/foss.php'); ?>
 		</div>
 
 		<div class='gap-20 flex-row items-baseline'>
-			<div class='text-s'>(03)</div>
+			<div class='text-s no-select'>(03)</div>
 
 			<?php require('fragments/skills.php'); ?>
 		</div>
 
-		<footer class='text-s flex-row justify-between'>
+		<footer class='text-s flex-row justify-between text-lowercase'>
 			<div></div>
-			<a class='hover:underline cursor-pointer invisible print:visible' href='https://vaaas.github.io/cv'>this document is available online at vaaas.github.io/cv</a>
-			<div>Page 1/1</div>
+			<a class='hover:underline cursor-pointer invisible print:visible' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
+			<div class='no-select'>Page 1/1</div>
 		</footer>
 	</body>
 </html>

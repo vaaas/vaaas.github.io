@@ -6,25 +6,35 @@
 	<style>
 		/* basic */
 		html {
-			font-size: 4mm;
-			margin: auto;
-			width: 210mm;
-			line-height: 1.5em;
-			font-family: serif;
 			color: #655;
+			font-family: serif;
+			font-size: 100%;
+			line-height: 1.5em;
+			margin: auto;
+			width: 70rem;
 		}
 
-		body { margin: 15mm; }
+		* { line-height: 150%; }
 
-		header {
-			font-weight: bold;
-			color: #000;
-			grid-area: header;
+		body {
+			margin: 15mm;
+			position: relative;
 		}
 
-		ul {
-			margin: 0;
-			padding-left: 0;
+		nav {
+			line-height: 1.5em;
+			position: absolute;
+			right: 1rem;
+			top: 1rem;
+		}
+
+		@media print {
+			html {
+				width: auto;
+				font-size: 10pt;
+			}
+			body { margin: 0; }
+			nav { display: none; }
 		}
 
 		a {
@@ -34,106 +44,85 @@
 
 		a:hover { text-decoration: underline; }
 
-		h1 {
-			font-size: 2rem;
-			margin: 0;
-			line-height: 1.5em;
-		}
-
-		h2 {
-			font-size: 1.50rem;
-			font-weight: normal;
-			margin: 0;
-			line-height: 1.5em;
-			color: #655;
-		}
-
-		b { color: #000; }
-
 		.hide { display: none !important; }
 
-		/* primary section */
-		body > section {
-			position: relative;
-			display: grid;
-			grid-template-areas:
-				'header header'
-				'left right'
-				'footer footer';
+		ul {
+			margin: 0;
+			padding: 0;
+			margin-left: 1rem;
 		}
 
-		body > section > section > section + section { margin-top: 1rem; }
-
-		body > section > section { padding: 1rem 0; }
-
-		/* primary header */
-		body > section > header {
-			grid-area: header;
-			padding-bottom: 1rem;
+		footer {
+			font-style: italic;
+			text-align: center;
 		}
 
-		/* nav */
-		nav {
-			position: absolute;
-			top: 1rem;
-			right: 1rem;
-			line-height: 1.5em;
+		.about {
+			display: flex;
+			gap: 2rem;
+			justify-content: space-between;
+			align-items: center;
 		}
 
-		nav > a + a { margin-left: 1em; }
+		.contact { width: 45rem; }
 
-		/* sidebar */
-		.sidebar {
-			max-width: 65mm;
-			grid-area: left;
+		.contact b {
+			display: inline-block;
+			width: 5rem;
+		}
+
+		.xp {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2rem;
+			flex-direction: column;
+			max-height: 50rem;
+		}
+
+		.xp article {
+			width: calc(50% - 2rem);
+		}
+
+		.xp article header {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.xp article header i {
+			min-width: 6rem;
+		}
+
+		.buzzwords div {
+			display: flex;
+			flex-wrap: wrap;
 		}
 
 		.buzzwords div span {
-			display: inline-block;
-			width: 7em;
+			width: 7rem;
 		}
 
-		body > section > section > header:first-child {
-			font-size: 1.25rem;
-			line-height: 1.5em;
+		header h1 {
+			font-size: 2em;
+			color: #000;
+			margin: 0;
 		}
 
-		.contact { margin-top: 1rem; }
-		.contact > div > * { display: inline-block; }
-		.contact > div > b { width: 5rem; }
-
-		/* xp */
-		.xp {
-			grid-area: right;
-			padding-left: 2rem;
+		header h2 {
+			margin: 0;
+			font-size: 1.5em;
+			font-weight: 400;
 		}
 
-		.xp > section > header {
+		section > header {
+			font-weight: bold;
+			font-size: 1.25em;
+			margin-bottom: 0.5rem;
+		}
+
+		body > div {
 			display: flex;
-			justify-content: space-between;
-			font-weight: inherit;
-		}
-		.xp > section > header b { font-size: 1.1rem; }
-		.xp > section > header i {
-			font-size: 0.8rem;
-			white-space: nowrap;
-		}
-
-		/* footer */
-		footer {
-			grid-area: footer;
-			padding-top: 1rem;
-		}
-
-		/* media queries */
-		@media print {
-			body { margin: 0; }
-			.xp { min-height: 265mm; }
-			nav { display: none; }
-			footer {
-				font-style: italic;
-				text-align: center;
-			}
+			flex-direction: column;
+			gap: 2rem;
 		}
 	</style>
 
@@ -151,12 +140,12 @@
 </head>
 
 <body>
-	<section id='el' class='hide'>
-		<nav>
-			<a href='#' onclick='show("en")'>EN</a>
-			<a href='#' onclick='show("el")''>EL</a>
-		</nav>
+	<nav>
+		<a href='#' onclick='show("en")'>EN</a>
+		<a href='#' onclick='show("el")'>EL</a>
+	</nav>
 
+	<div id='el' class='hide'>
 		<header>
 			<h1>Βασίλειος Πασιαλιώκης</h1>
 			<h2>Προγραμματιστής λογισμικού (full stack)</h2>
@@ -182,30 +171,6 @@
 					Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης
 					<br/>
 					<i>Ηλεκτρολόγος Μηχανικός &amp; Μηχανικός Υπολογιστών</i>
-				</div>
-			</section>
-
-			<section class='buzzwords'>
-				<header>Ικανότητες</header>
-				<div>
-					<span>Javascript</span>
-					<span>Typescript</span>
-					<span>node.js</span>
-					<span>Mentoring</span>
-					<span>Vue</span>
-					<span>React</span>
-					<span>Nuxt</span>
-					<span>(S)CSS</span>
-					<span>PHP</span>
-					<span>Laravel</span>
-					<span>SQL</span>
-					<span>Lisp</span>
-					<span>Python</span>
-					<span>Linux</span>
-					<span>bash</span>
-					<span>Git</span>
-					<span>Docker</span>
-					<span>AWS</span>
 				</div>
 			</section>
 		</section>
@@ -301,165 +266,178 @@
 			</section>
 		</section>
 
+		<section class='buzzwords'>
+			<header>Ικανότητες</header>
+			<div>
+				<span>Javascript</span>
+				<span>Typescript</span>
+				<span>node.js</span>
+				<span>Mentoring</span>
+				<span>Vue</span>
+				<span>React</span>
+				<span>Nuxt</span>
+				<span>(S)CSS</span>
+				<span>PHP</span>
+				<span>Laravel</span>
+				<span>SQL</span>
+				<span>Lisp</span>
+				<span>Python</span>
+				<span>Linux</span>
+				<span>bash</span>
+				<span>Git</span>
+				<span>Docker</span>
+				<span>AWS</span>
+			</div>
+		</section>
+
 		<footer>
 			Αυτό το έγγραφο διατίθεται και online:
 			<a href='https://vaaas.github.io/cv/'>https://vaaas.github.io/cv/</a>
 		</footer>
-	</section>
+	</div>
 
-	<section id='en'>
-		<nav>
-			<a href='#' onclick='show("en")'>EN</a>
-			<a href='#' onclick='show("el")'>EL</a>
-		</nav>
-
+	<div id='en'>
 		<header>
 			<h1>Vasileios Pasialiokis</h1>
 			<h2>Full stack developer</h2>
 		</header>
 
-		<section class='sidebar'>
-			<section class='info'>
-				<div>I'm a developer and IT operator with a focus on software sensitive to correctness and performance. I'm fluent in node.js, Python, and PHP in functional style.</div>
-
-				<div class='contact'>
-					<div><b>Phone</b> <a href='tel:+306955018104'>+30 695 501 8104</a></div>
-					<div><b>Email</b> <a href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a></div>
-					<div><b>Github</b> <a href='https://github.com/vaaas'>github.com/vaaas</a></div>
-				</div>
+		<section class='about'>
+			<section class='blurb'>
+				I'm a developer and IT operator with a focus on software sensitive to correctness and performance. I'm fluent in node.js, Python, and PHP in functional style.
 			</section>
 
-			<section class='education'>
-				<header>Education</header>
-				<div>
-					Aristotle University of Thessaloniki
-					<br/>
-					<i>Computer Engineering</i>
-				</div>
-
-			</section>
-
-			<section class='buzzwords'>
-				<header>Skills</header>
-
-				<div>
-					<span>Javascript</span>
-					<span>Typescript</span>
-					<span>node.js</span>
-					<span>Mentoring</span>
-					<span>Vue</span>
-					<span>React</span>
-					<span>Nuxt</span>
-					<span>(S)CSS</span>
-					<span>PHP</span>
-					<span>Laravel</span>
-					<span>SQL</span>
-					<span>Lisp</span>
-					<span>Python</span>
-					<span>Linux</span>
-					<span>bash</span>
-					<span>Git</span>
-					<span>Docker</span>
-					<span>AWS</span>
-				</div>
+			<section class='contact'>
+				<div><b>Phone</b> <a href='tel:+306955018104'>+30 695 501 8104</a></div>
+				<div><b>Email</b> <a href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a></div>
+				<div><b>Github</b> <a href='https://github.com/vaaas'>github.com/vaaas</a></div>
 			</section>
 		</section>
 
-		<section class='xp'>
-			<section>
-				<header>
-					<b>Kaizen Gaming</b>
-					<i>2024 — now</i>
-				</header>
-				<div>Stack: Vue, Vuex, Tailwind</div>
-				<ul>
-					<li>Implementing new features &amp; maintenance for live betting</li>
-					<li>Two-way, realtime websocket communication</li>
-					<li>Composable, functional, and 100% unit tested code</li>
-					<li>Mentoring of junior developers in modern web development</li>
-				</ul>
-			</section>
+		<section class='buzzwords'>
+			<header>Skills</header>
 
-			<section>
-				<header>
-					<b>Aylo</b>
-					<i>2023 — 2024</i>
-				</header>
-				<div>Stack: PHP + Larvel, React, MySQL &amp; ElasticSearch</div>
-				<ul>
-					<li>Maintenance of legacy PHP code (Zend Framework 1)</li>
-					<li>Migration of monolithic PHP code into microservices</li>
-					<li>Improvements on content search functionality</li>
-					<li>Unit testing through PHPUnit, type checking through PHPStan</li>
-				</ul>
-			</section>
+			<div>
+				<span>Javascript</span>
+				<span>Typescript</span>
+				<span>node.js</span>
+				<span>Mentoring</span>
+				<span>Vue</span>
+				<span>React</span>
+				<span>Nuxt</span>
+				<span>(S)CSS</span>
+				<span>PHP</span>
+				<span>Laravel</span>
+				<span>SQL</span>
+				<span>Lisp</span>
+				<span>Python</span>
+				<span>Linux</span>
+				<span>bash</span>
+				<span>Git</span>
+				<span>Docker</span>
+				<span>AWS</span>
+			</div>
+		</section>
 
-			<section>
-				<header>
-					<b>Phenometry — phi3d.com</b>
-					<i>2022 — 2023</i>
-				</header>
-				<div>Stack: node.js &amp; Express, Typescript &amp; Vue, wasm, AWS</div>
-				<ul>
-					<li>Significant refactoring of legacy code into modern best practices: Vue 3, Typescript, SWC, eslint, dependency injection</li>
-					<li>Added 80+% test coverage</li>
-					<li>Reduced initial load size by 95%</li>
-					<li>Port of Phi for tablet, touch, and pen interfaces</li>
-					<li>Integration of Stripe payments</li>
-				</ul>
-			</section>
+		<section>
+			<header>Experience</header>
 
-			<section>
-				<header>
-					<b>Mattermost</b>
-					<i>2022</i>
-				</header>
-				<div>Stack: JS, TS, Electron, React</div>
-				<ul>
-					<li>Paid contributor for Linux-specific bugs in the Electron application</li>
-				</ul>
-			</section>
+			<div class='xp'>
+				<article>
+					<header>
+						<b>Kaizen Gaming</b>
+						<i>2024 — now</i>
+					</header>
+					<div>Stack: Vue, Vuex, Tailwind</div>
+					<ul>
+						<li>Implementing new features &amp; maintenance for live betting</li>
+						<li>Two-way, realtime websocket communication</li>
+						<li>Composable, functional, and 100% unit tested code</li>
+						<li>Mentoring of junior developers in modern web development</li>
+					</ul>
+				</article>
 
-			<section>
-				<header>
-					<b>Doppler SA</b>
-					<i>2020 — 2022</i>
-				</header>
-				<div>Stack: PHP &amp; Laravel, JS &amp; Vue</div>
-				<ul>
-					<li>Architected a continuous integration pipeline</li>
-					<li>Developed an order automation tool and a BI dashboard for our ERP</li>
-					<li>Mentored new employees in modern Linux web development</li>
-				</ul>
-			</section>
+				<article>
+					<header>
+						<b>Aylo</b>
+						<i>2023 — 2024</i>
+					</header>
+					<div>Stack: PHP + Larvel, React, MySQL &amp; ElasticSearch</div>
+					<ul>
+						<li>Maintenance of legacy PHP code (Zend Framework 1)</li>
+						<li>Migration of monolithic PHP code into microservices</li>
+						<li>Improvements on content search functionality</li>
+						<li>Unit testing through PHPUnit, type checking through PHPStan</li>
+					</ul>
+				</article>
 
-			<section>
-				<header>
-					<b>Organization for Transformative Works</b>
-					<i>2015 — 2021</i>
-				</header>
-				<div>Stack: Wordpress, Ruby on Rails, JS &amp; jQuery</div>
-				<ul>
-					<li>Founded and coordinated the Greek translation team</li>
-					<li>Content management through Wordpress</li>
-					<li>Wrangling of tag and metadata ontologies on user content</li>
-					<li>User interface programming</li>
-				</ul>
-			</section>
+				<article>
+					<header>
+						<b>Phenometry — phi3d.com</b>
+						<i>2022 — 2023</i>
+					</header>
+					<div>Stack: node.js &amp; Express, Typescript &amp; Vue, wasm, AWS</div>
+					<ul>
+						<li>Significant refactoring of legacy code into modern best practices: Vue 3, Typescript, SWC, eslint, dependency injection</li>
+						<li>Added 80+% test coverage</li>
+						<li>Reduced initial load size by 95%</li>
+						<li>Port of Phi for tablet, touch, and pen interfaces</li>
+						<li>Integration of Stripe payments</li>
+					</ul>
+				</article>
 
-			<section>
-				<header><b>Assorted &amp; Hobbyist Projects</b></header>
-				<ul>
-					<li>5 years of video game development (Python, SDL, Panda3d)</li>
-					<li>3 years of native Linux application development (GTK3, Qt4, xcb, xlib)</li>
-					<li>And a little bit of experience in embedded operating systems (ChibiOS) and compilers (Scheme Lisp &rarr; Javascript)</li>
-			</section>
+				<article>
+					<header>
+						<b>Mattermost</b>
+						<i>2022</i>
+					</header>
+					<div>Stack: JS, TS, Electron, React</div>
+					<ul>
+						<li>Paid contributor for Linux-specific bugs in the Electron application</li>
+					</ul>
+				</article>
+
+				<article>
+					<header>
+						<b>Doppler SA</b>
+						<i>2020 — 2022</i>
+					</header>
+					<div>Stack: PHP &amp; Laravel, JS &amp; Vue</div>
+					<ul>
+						<li>Architected a continuous integration pipeline</li>
+						<li>Developed an order automation tool and a BI dashboard for our ERP</li>
+						<li>Mentored new employees in modern Linux web development</li>
+					</ul>
+				</article>
+
+				<article>
+					<header>
+						<b>Organization for Transformative Works</b>
+						<i>2015 — 2021</i>
+					</header>
+					<div>Stack: Wordpress, Ruby on Rails, JS &amp; jQuery</div>
+					<ul>
+						<li>Founded and coordinated the Greek translation team</li>
+						<li>Content management through Wordpress</li>
+						<li>Wrangling of tag and metadata ontologies on user content</li>
+						<li>User interface programming</li>
+					</ul>
+				</article>
+
+				<article>
+					<header><b>Assorted &amp; Hobbyist Projects</b></header>
+					<ul>
+						<li>5 years of video game development (Python, SDL, Panda3d)</li>
+						<li>3 years of native Linux application development (GTK3, Qt4, xcb, xlib)</li>
+						<li>And a little bit of experience in embedded operating systems (ChibiOS) and compilers (Scheme Lisp &rarr; Javascript)</li>
+				</article>
+			</div>
 		</section>
 
 		<footer>
 			This document is available online:
 			<a href='https://vaaas.github.io/cv/'>https://vaaas.github.io/cv/</a>
 		</footer>
-	</section>
+	</div>
 </body>
 </html>

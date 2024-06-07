@@ -1,8 +1,8 @@
-<section class='flex-row flex-wrap justify-between text-lowercase'>
-	<article class='w-half'>
-		<div class='bold'>Programming languages</div>
+<section class='col-span-7 text-lowercase grid col7 grid-col-gap-p'>
+	<article class='block col-span-3'>
+		<div class='block bold'>Programming languages</div>
 
-		<div class='flex-row flex-wrap pt-xs justify-between text-slightly-faded'>
+		<div class='flex flex-wrap justify-between text-slightly-faded pt-2p'>
 			<div class='w-half'>Typescript</div>
 			<div class='w-half'>Javascript</div>
 			<div class='w-half'>PHP</div>
@@ -16,10 +16,12 @@
 		</div>
 	</article>
 
-	<article class='w-half'>
-		<div class='bold'>Tooling &amp; libraries</div>
+	<article></article>
 
-		<div class='flex-row flex-wrap pt-xs justify-between text-slightly-faded'>
+	<article class='block col-span-3'>
+		<div class='block bold'>Tooling &amp; libraries</div>
+
+		<div class='flex flex-wrap justify-between text-slightly-faded pt-2p'>
 			<div class='w-half'>Vue</div>
 			<div class='w-half'>React</div>
 			<div class='w-half'>Tailwind</div>
@@ -36,12 +38,12 @@
 
 	</article>
 
-	<article class='w-half'>
-		<div class='bold'>Spoken languages</div>
+	<article class='block col-span-3'>
+		<div class='block bold'>Spoken languages</div>
 
-		<div class='pt-xs text-slightly-faded'>
-			<div>Greek (native)</div>
-			<div>English (fluent)</div>
+		<div class='block text-slightly-faded pt-2p'>
+			<div class='block'>Greek (native)</div>
+			<div class='block'>English (fluent)</div>
 		</div>
 	</article>
 </section>

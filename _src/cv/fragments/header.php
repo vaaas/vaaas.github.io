@@ -1,10 +1,10 @@
-<header class='flex-row justify-between items-baseline'>
-	<h1 class='text-xxl'>Vasileios Pasialiokis</h1>
+<header class='col-span-12 flex items-baseline justify-between'>
+	<h1 class='col-span-9 text-huge'>Vasileios Pasialiokis</h1>
 
-	<section>
+	<section class='col-span-3'>
 		<div>full-stack developer</div>
-		<a class='pt-xl hover:underline cursor-pointer' href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a>
-		<a class='hover:underline cursor-pointer' href='tel:+306955018104'>+30 695 501 8104</a>
-		<a class='hover:underline cursor-pointer' href='https://github.com/vaaas'>github.com/vaaas</a>
+		<a class='block cursor-pointer hover:underline pt-3p' href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a>
+		<a class='block cursor-pointer hover:underline' href='tel:+306955018104'>+30 695 501 8104</a>
+		<a class='block cursor-pointer hover:underline' href='https://github.com/vaaas'>github.com/vaaas</a>
 	</section>
 </header>

@@ -21,8 +21,12 @@ html { font-family: 'Playfair Display', serif; }
 .bg-fed { background: var(--color-fed); }
 .block { display: block; }
 .bold { font-weight: bold; }
+.border-top-1px { border-top-width: 1px; }
+.border-top-black { border-top-color: black; }
+.border-top-solid { border-top-style: solid; }
 .col-span-10 { grid-column: span 10; }
 .col-span-12 { grid-column: span 12; }
+.col-span-2 { grid-column: span 2; }
 .col-span-3 { grid-column: span 3; }
 .col-span-5 { grid-column: span 5; }
 .col-span-7 { grid-column: span 7; }
@@ -31,24 +35,31 @@ html { font-family: 'Playfair Display', serif; }
 .col7 { grid-template-columns: repeat(7, 1fr); }
 .cursor-pointer { cursor: pointer; }
 .flex { display: flex; }
+.flex-col { flex-direction: column; }
 .flex-wrap { flex-wrap: wrap; }
+.flexible { flex: 1; }
 .gap-2p { gap: calc(2 * var(--p)); }
 .grid { display: grid; }
 .grid-col-gap-p { grid-column-gap: var(--p); }
 .grid-row-gap-p6 { grid-row-gap: calc(6 * var(--p)); }
-.h-136p { height: calc(136 * var(--p)); }
+.h-14p { height: calc(14 * var(--p)); }
+.h-30p { height: calc(30 * var(--p)); }
+.h-50p { height: calc(50 * var(--p)); }
 .hover\:underline:hover { text-decoration: underline; }
 .invisible { visibility: hidden; }
-.italic { font-style: italic; }
 .items-baseline { align-items: baseline; }
+.justified { text-align: justify; }
 .justify-between { justify-content: space-between; }
+.leading-2hp { line-height: calc(2.5 * var(--p)); }
+.leading-reset { line-height: 1em; }
+.line { top: 0.70rem; }
 .m-auto { margin: auto; }
-.ml-auto { margin-left: auto; }
 .no-select { user-select: none; }
 .p-2p { padding: calc(2 * var(--p)); }
 .pt-2p { padding-top: calc(2 * var(--p)); }
 .pt-3p { padding-top: calc(3 * var(--p)); }
-.row-initial { grid-template-rowns: initial; }
+.pt-8p { padding-top: calc(8 * var(--p)); }
+.relative { position: relative; }
 .text-huge { font-size: calc(4 * var(--p)); }
 .text-lowercase { text-transform: lowercase; }
 .text-s { font-size: calc(1.5 * var(--p)); }
@@ -59,7 +70,6 @@ html { font-family: 'Playfair Display', serif; }
 
 @media screen {
 	html { font-size: 20px; }
-	.screen\:gap-xxl { gap: var(--spacing-xxl); }
 }
 
 @media print {
@@ -76,106 +86,119 @@ html { font-family: 'Playfair Display', serif; }
 		</style>
 	</head>
 
-	<body class='bg-fed col12 grid grid-col-gap-p grid-row-gap-p6 m-auto print:bg-white print:h-full print:p-0 row-initial w-96p'>
-		<header class='col-span-12 flex items-baseline justify-between'>
-	<h1 class='col-span-9 text-huge'>Vasileios Pasialiokis</h1>
+	<body class='bg-fed col12 grid grid-col-gap-p m-auto print:bg-white print:h-full print:p-0 w-96p'>
+		<header class='col-span-12 flex h-14p items-baseline justify-between'>
+	<h1 class='col-span-9 leading-reset text-huge'>Vasileios Pasialiokis</h1>
 
-	<section class='col-span-3'>
-		<div>full-stack developer</div>
-		<a class='block cursor-pointer hover:underline pt-3p' href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a>
-		<a class='block cursor-pointer hover:underline' href='tel:+306955018104'>+30 695 501 8104</a>
-		<a class='block cursor-pointer hover:underline' href='https://github.com/vaaas'>github.com/vaaas</a>
+	<section class='col-span-3 h-12p'>
+		<div class='leading-m'>full-stack developer</div>
+		<a class='block cursor-pointer hover:underline leading-2hp pt-2p' href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a>
+		<a class='block cursor-pointer hover:underline leading-2hp' href='tel:+306955018104'>+30 695 501 8104</a>
+		<a class='block cursor-pointer hover:underline leading-2hp' href='https://github.com/vaaas'>github.com/vaaas</a>
 	</section>
 </header>
 
-		<div class='col-span-12 col12 grid items-baseline'>
-			<div class='col-span-3 text-s no-select'>(01)</div>
+		<div class='col-span-12 col12 grid h-50p items-baseline pt-8p'>
+			<div class='col-span-2 no-select text-s'>(01)</div>
 
-			<section class='col-span-9'>
-	<h2 class='block text-huge text-lowercase'>Experience.</h2>
+			<section class='col-span-10'>
+				<div class='flex flex-col gap-2p'>
+	<h2 class='leading-reset text-huge text-lowercase'>Experience.</h2>
 
-	<article class='block pt-2p'>
+	<article class='leading-2hp'>
 		<h3 class='flex gap-2p items-center text-lowercase'>
 			<div class='bold'>Kaizen Gaming</div>
 			<div>Frontend Developer</div>
-			<div class='ml-auto'>2024 — now</div>
+			<div class="border-top-1px border-top-black border-top-solid flexible line relative"></div>
+			<div>2024 — now</div>
 		</h3>
 
-		<div class='pt-xs text-slightly-faded text-sm'>Live betting team. Frontend development with Vue, Vuex, Tailwind. Composable, functional, fully unit tested code. Mentoring of new employees.</div>
+		<div class='pt-xs text-slightly-faded text-sm justified block'>Live betting team. Frontend development with Vue, Vuex, Tailwind. Composable, functional, fully unit tested code. Mentoring of new employees.</div>
 	</article>
 
-	<article class='block pt-2p'>
+	<article class='leading-2hp'>
 		<h3 class='flex gap-2p items-center text-lowercase'>
 			<div class='bold'>Aylo</div>
 			<div>Backend Developer</div>
-			<div class='ml-auto'>2023 — 2024</div>
+			<div class="border-top-1px border-top-black border-top-solid flexible line relative"></div>
+			<div>2023 — 2024</div>
 		</h3>
 
-		<div class='pt-xs text-slightly-faded text-sm'>Maintenance and modernisation of legacy code (Zend Framework 1). Migration to a microservices architecture. Improvements on content search functionality. PHP, Laravel, MySQL, Elasticsearch, React.</div>
+		<div class='pt-xs text-slightly-faded text-sm justified block'>Maintenance and modernisation of legacy code (Zend Framework 1). Migration to a microservices architecture. Improvements on content search functionality. PHP, Laravel, MySQL, Elasticsearch, React.</div>
 	</article>
 
-	<article class='block pt-2p'>
+	<article class='leading-2hp'>
 		<h3 class='flex gap-2p items-center text-lowercase'>
 			<div class='bold'>Phenometry</div>
 			<div>Full-stack Developer</div>
-			<div class='ml-auto'>2022 — 2023</div>
+			<div class="border-top-1px border-top-black border-top-solid flexible line relative"></div>
+			<div>2022 — 2023</div>
 		</h3>
 
-		<div class='pt-xs text-slightly-faded text-sm'>Full-stack development in node.js, Express, Typescript, Vue, PostgreSQL. Significant refactoring of legacy code. 0% → 80% test coverage. Optimisation and bundle size reduction. Mentoring of new employees. Implementation of Phi for tablet and pen interfaces. Integration of Stripe payments.</div>
+		<div class='block justified pt-xs text-slightly-faded text-sm'>Full-stack development in node.js, Express, Typescript, Vue, PostgreSQL. Significant refactoring of legacy code. 0% → 80% test coverage. Optimisation and bundle size reduction. Mentoring of new employees. Implementation of Phi for tablet and pen interfaces. Integration of Stripe payments.</div>
 	</article>
 
-	<article class='block pt-2p'>
+	<article class='leading-2hp'>
 		<h3 class='flex gap-2p items-center text-lowercase'>
 			<div class='bold'>Doppler SA</div>
 			<div>Full-stack Developer, DevOps</div>
-			<div class='ml-auto'>2020 — 2022</div>
+			<div class="border-top-1px border-top-black border-top-solid flexible line relative"></div>
+			<div>2020 — 2022</div>
 		</h3>
 
-		<div class='pt-xs text-slightly-faded text-sm'>Full-stack development in PHP, Laravel, Lumen, Vue, SQL Server, MariaDB. Architected the CI/CD pipelines. Development of order automation, BI analytics, and internal tooling extending the company ERP. Mentoring of new employees.</div>
+		<div class='block justified pt-xs text-slightly-faded text-sm'>Full-stack development in PHP, Laravel, Lumen, Vue, SQL Server, MariaDB. Architected the CI/CD pipelines. Development of order automation, BI analytics, and internal tooling extending the company ERP. Mentoring of new employees.</div>
 	</article>
-</section>
+</div>
+			</section>
 		</div>
 
-		<div class='col-span-12 grid col12 items-baseline'>
-			<div class='col-span-3 text-s no-select'>(02)</div>
+		<div class='col-span-12 col12 grid h-30p items-baseline pt-8p'>
+			<div class='col-span-2 no-select text-s'>(02)</div>
 
-			<section class='col-span-9'>
-	<h2 class='block text-huge text-lowercase'>Open-source Contributions.</h2>
+			<section class='col-span-10'>
+				<div class='flex flex-col gap-2p'>
+	<h2 class='leading-reset text-huge text-lowercase'>Open-source Contributions.</h2>
 
-	<article class='block pt-2p'>
+	<article class='leading-2hp'>
 		<h3 class='flex gap-2p items-center text-lowercase'>
 			<div class='bold'>Mattermost</div>
-			<div class='ml-auto'>2022</div>
+			<div class="border-top-1px border-top-black border-top-solid flexible line relative"></div>
+			<div>2022</div>
 		</h3>
 
-		<div class='pt-xs text-slightly-faded text-sm'>Paid contributor for the Electron application. Development in React, Typescript.</div>
+		<div class='block justified pt-xs text-slightly-faded text-sm'>Paid contributor for the Electron application. Development in React, Typescript.</div>
 	</article>
 
-	<article class='block pt-2p'>
+	<article class='leading-2hp'>
 		<h3 class='flex gap-2p items-center text-lowercase'>
 			<div class='bold'>Organisation for Transformative Works</div>
-			<div class='ml-auto'>2015 — 2021</div>
+			<div class="border-top-1px border-top-black border-top-solid flexible line relative"></div>
+			<div>2015 — 2021</div>
 		</h3>
 
-		<div class='pt-xs text-slightly-faded text-sm'>Founded and coordinated the Greek translation team. Content management through Wordpress. Development of internal tooling in jQuery. Wrangling and management of metadata ontologies.</div>
+		<div class='block justified pt-xs text-slightly-faded text-sm'>Founded and coordinated the Greek translation team. Content management through Wordpress. Development of internal tooling in jQuery. Wrangling and management of metadata ontologies.</div>
 	</article>
 
-	<article class='block pt-2p'>
-		<h3 class='block bold text-lowercase'>Assorted &amp; Hobbyist Projects</h3>
+	<article class='leading-2hp'>
+		<h3 class='flex gap-2p items-center text-lowercase'>
+			<div class='bold'>Assorted &amp; Hobbyist Projects</div>
+			<div class="border-top-1px border-top-black border-top-solid flexible line relative"></div>
+		</h3>
 
-		<div class='pt-xs text-slightly-faded text-sm'>Video game development in Python, PyGame, Panda3d. Native Linux application development in GTK3, Qt4. Embedded systems programming in ChibiOS. Compiler research (Scheme Lisp → Javascript).
+		<div class='block justified pt-xs text-slightly-faded text-sm'>Video game development in Python, PyGame, Panda3d. Native Linux application development in GTK3, Qt4. Embedded systems programming in ChibiOS. Compiler research (Scheme Lisp → Javascript).
 	</article>
-</section>
+</div>
+			</section>
 		</div>
 
-		<div class='col-span-12 grid col12 items-baseline'>
-			<div class='col-span-5 text-s no-select'>(03)</div>
+		<div class='col-span-12 col12 grid items-baseline pt-8p'>
+			<div class='col-span-5 no-select text-s'>(03)</div>
 
-			<section class='col-span-7 text-lowercase grid col7 grid-col-gap-p'>
-	<article class='block col-span-3'>
-		<div class='block bold'>Programming languages</div>
+			<section class='col-span-7 col7 grid grid-col-gap-p text-lowercase'>
+	<article class='col-span-3'>
+		<div class='block bold leading-reset'>Programming languages</div>
 
-		<div class='flex flex-wrap justify-between text-slightly-faded pt-2p'>
+		<div class='flex flex-wrap justify-between leading-2hp pt-2p text-slightly-faded text-sm'>
 			<div class='w-half'>Typescript</div>
 			<div class='w-half'>Javascript</div>
 			<div class='w-half'>PHP</div>
@@ -191,10 +214,10 @@ html { font-family: 'Playfair Display', serif; }
 
 	<article></article>
 
-	<article class='block col-span-3'>
-		<div class='block bold'>Tooling &amp; libraries</div>
+	<article class='col-span-3'>
+		<div class='block bold leading-reset'>Tooling &amp; libraries</div>
 
-		<div class='flex flex-wrap justify-between text-slightly-faded pt-2p'>
+		<div class='flex flex-wrap justify-between leading-2hp pt-2p text-slightly-faded text-sm'>
 			<div class='w-half'>Vue</div>
 			<div class='w-half'>React</div>
 			<div class='w-half'>Tailwind</div>
@@ -211,10 +234,10 @@ html { font-family: 'Playfair Display', serif; }
 
 	</article>
 
-	<article class='block col-span-3'>
-		<div class='block bold'>Spoken languages</div>
+	<article class='col-span-3 pt-3p'>
+		<div class='block bold leading-reset'>Spoken languages</div>
 
-		<div class='block text-slightly-faded pt-2p'>
+		<div class='block leading-2hp pt-2p text-slightly-faded text-sm'>
 			<div class='block'>Greek (native)</div>
 			<div class='block'>English (fluent)</div>
 		</div>
@@ -222,9 +245,9 @@ html { font-family: 'Playfair Display', serif; }
 </section>
 		</div>
 
-		<footer class='col-span-12 flex justify-between text-lowercase text-s'>
+		<footer class='col-span-12 flex justify-between pt-8p text-lowercase text-s'>
 			<div></div>
-			<a class='hover:underline cursor-pointer invisible print:visible' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
+			<a class='cursor-pointer hover:underline invisible print:visible' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
 			<div class='no-select'>Page 1/1</div>
 		</footer>
 	</body>

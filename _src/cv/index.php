@@ -11,30 +11,34 @@ require('utils.php');
 		</style>
 	</head>
 
-	<body class='bg-fed col12 grid grid-col-gap-p grid-row-gap-p6 m-auto print:bg-white print:h-full print:p-0 row-initial w-96p'>
+	<body class='bg-fed col12 grid grid-col-gap-p m-auto print:bg-white print:h-full print:p-0 w-96p'>
 		<?php require('fragments/header.php'); ?>
 
-		<div class='col-span-12 col12 grid items-baseline'>
-			<div class='col-span-3 text-s no-select'>(01)</div>
+		<div class='col-span-12 col12 grid h-50p items-baseline pt-8p'>
+			<div class='col-span-2 no-select text-s'>(01)</div>
 
-			<?php require('fragments/experience.php'); ?>
+			<section class='col-span-10'>
+				<?php require('fragments/experience.php'); ?>
+			</section>
 		</div>
 
-		<div class='col-span-12 grid col12 items-baseline'>
-			<div class='col-span-3 text-s no-select'>(02)</div>
+		<div class='col-span-12 col12 grid h-30p items-baseline pt-8p'>
+			<div class='col-span-2 no-select text-s'>(02)</div>
 
-			<?php require('fragments/foss.php'); ?>
+			<section class='col-span-10'>
+				<?php require('fragments/foss.php'); ?>
+			</section>
 		</div>
 
-		<div class='col-span-12 grid col12 items-baseline'>
-			<div class='col-span-5 text-s no-select'>(03)</div>
+		<div class='col-span-12 col12 grid items-baseline pt-8p'>
+			<div class='col-span-5 no-select text-s'>(03)</div>
 
 			<?php require('fragments/skills.php'); ?>
 		</div>
 
-		<footer class='col-span-12 flex justify-between text-lowercase text-s'>
+		<footer class='col-span-12 flex justify-between pt-8p text-lowercase text-s'>
 			<div></div>
-			<a class='hover:underline cursor-pointer invisible print:visible' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
+			<a class='cursor-pointer hover:underline invisible print:visible' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
 			<div class='no-select'>Page 1/1</div>
 		</footer>
 	</body>

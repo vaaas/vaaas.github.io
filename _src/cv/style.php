@@ -24,7 +24,6 @@ html { font-family: 'Playfair Display', serif; }
 .col-span-3 { grid-column: span 3; }
 .col-span-5 { grid-column: span 5; }
 .col-span-7 { grid-column: span 7; }
-.col-span-9 { grid-column: span 9; }
 .col12 { grid-template-columns: repeat(12, 1fr); }
 .col7 { grid-template-columns: repeat(7, 1fr); }
 .cursor-pointer { cursor: pointer; }
@@ -48,7 +47,9 @@ html { font-family: 'Playfair Display', serif; }
 .leading-reset { line-height: 1em; }
 .line { top: 0.70rem; }
 .m-auto { margin: auto; }
+.max-w-96p { max-width: calc(96 * var(--p)); }
 .no-select { user-select: none; }
+.no-wrap { white-space: nowrap; }
 .p-2p { padding: calc(2 * var(--p)); }
 .pt-2p { padding-top: calc(2 * var(--p)); }
 .pt-3p { padding-top: calc(3 * var(--p)); }
@@ -59,7 +60,6 @@ html { font-family: 'Playfair Display', serif; }
 .text-s { font-size: calc(1.5 * var(--p)); }
 .text-slightly-faded { color: var(--color-slightly-faded); }
 .text-sm { font-size: calc(1.75 * var(--p)); }
-.w-96p { width: calc(96 * var(--p)); }
 .w-half { width: 50%; }
 
 @media screen {
@@ -71,6 +71,18 @@ html { font-family: 'Playfair Display', serif; }
 	.print\:bg-white { background: var(--color-white); }
 	.print\:p-0 { padding: 0; }
 	.print\:visible { visibility: visible; }
+}
+
+@media screen and (max-width: 60rem) {
+	.mobile\:block { display: block; }
+	.mobile\:col-span-12 { grid-column: span 12; }
+	.mobile\:flex { display: flex; }
+	.mobile\:flex-wrap { flex-wrap: wrap; }
+	.mobile\:gap-p { gap: var(--p); }
+	.mobile\:h-auto { height: auto; }
+	.mobile\:hidden { display: none; }
+	.mobile\:max-w-18p { max-width: calc(18 * var(--p)); }
+	.mobile\:p-reset { padding: 0; }
 }
 
 <?php require('fonts.php'); ?>

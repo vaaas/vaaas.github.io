@@ -1,5 +1,5 @@
-<section class='col-span-7 col7 grid grid-col-gap-p text-lowercase'>
-	<article class='col-span-3'>
+<section class='col-span-7 col7 grid grid-col-gap-p mobile:col-span-12 mobile:flex mobile:flex-wrap mobile:gap-p text-lowercase'>
+	<article class='col-span-3 mobile:max-w-18p'>
 		<div class='block bold leading-reset'>Programming languages</div>
 
 		<div class='flex flex-wrap justify-between leading-2hp pt-2p text-slightly-faded text-sm'>
@@ -16,9 +16,7 @@
 		</div>
 	</article>
 
-	<article></article>
-
-	<article class='col-span-3'>
+	<article class='col-span-3 mobile:max-w-18p'>
 		<div class='block bold leading-reset'>Tooling &amp; libraries</div>
 
 		<div class='flex flex-wrap justify-between leading-2hp pt-2p text-slightly-faded text-sm'>
@@ -38,7 +36,7 @@
 
 	</article>
 
-	<article class='col-span-3 pt-3p'>
+	<article class='col-span-3 mobile:max-w-18p mobile:p-reset pt-3p'>
 		<div class='block bold leading-reset'>Spoken languages</div>
 
 		<div class='block leading-2hp pt-2p text-slightly-faded text-sm'>

@@ -69,6 +69,8 @@ html { font-family: 'Playfair Display', serif; }
 @media print {
 	html { font-size: 12px; }
 	.print\:bg-white { background: var(--color-white); }
+	.print\:h-full { height: 100vh; }
+	.print\:mt-auto { margin-top: auto; }
 	.print\:p-0 { padding: 0; }
 	.print\:visible { visibility: visible; }
 }
@@ -82,7 +84,7 @@ html { font-family: 'Playfair Display', serif; }
 	.mobile\:h-auto { height: auto; }
 	.mobile\:hidden { display: none; }
 	.mobile\:max-w-18p { max-width: calc(18 * var(--p)); }
-	.mobile\:p-reset { padding: 0; }
+	.mobile\:p-0 { padding: 0; }
 }
 
 <?php require('fonts.php'); ?>

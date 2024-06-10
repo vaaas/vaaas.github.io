@@ -2,7 +2,7 @@
 require('utils.php');
 ?>
 <!DOCTYPE html>
-<html lang='en' class='p-2p'>
+<html lang='en' class='p-2p print:p-0'>
 	<head>
 		<meta charset='utf-8'/>
 		<title>Vasileios Pasioliokis - Software Developer</title>
@@ -14,7 +14,7 @@ require('utils.php');
 		<link rel='icon' href='<?= data_url('data:image/png', __DIR__ . '/favicon.png') ?>'/>
 	</head>
 
-	<body class='bg-fed col12 grid grid-col-gap-p m-auto max-w-96p print:bg-white print:h-full print:p-0'>
+	<body class='bg-fed col12 grid grid-col-gap-p m-auto max-w-96p print:bg-white print:h-full'>
 		<?php require('fragments/header.php'); ?>
 
 		<div class='col-span-12 col12 grid h-50p items-baseline mobile:h-auto pt-8p'>
@@ -39,7 +39,7 @@ require('utils.php');
 			<?php require('fragments/skills.php'); ?>
 		</div>
 
-		<footer class='col-span-12 flex justify-between mobile:hidden pt-8p text-lowercase text-s'>
+		<footer class='col-span-12 flex justify-between mobile:hidden print:mt-auto print:p-0 pt-8p text-lowercase text-s'>
 			<div></div>
 			<a class='cursor-pointer hover:underline invisible print:visible' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
 			<div class='no-select'>Page 1/1</div>

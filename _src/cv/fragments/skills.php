@@ -36,7 +36,7 @@
 
 	</article>
 
-	<article class='col-span-3 mobile:max-w-18p mobile:p-reset pt-3p'>
+	<article class='col-span-3 mobile:max-w-18p mobile:p-0 pt-3p'>
 		<div class='block bold leading-reset'>Spoken languages</div>
 
 		<div class='block leading-2hp pt-2p text-slightly-faded text-sm'>

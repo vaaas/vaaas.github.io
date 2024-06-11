@@ -1,9 +1,7 @@
-<?php
-require('utils.php');
-?>
+<?php require('utils.php'); ?>
 <!DOCTYPE html>
 <html lang='en' class='p-2p print:p-0'>
-	<head>
+	<head class='hidden'>
 		<meta charset='utf-8'/>
 		<title>Vasileios Pasioliokis - Software Developer</title>
 		<meta name='viewport' content='width=device-width, initial-scale=1'/>
@@ -14,30 +12,30 @@ require('utils.php');
 		<link rel='icon' href='<?= data_url('data:image/png', __DIR__ . '/favicon.png') ?>'/>
 	</head>
 
-	<body class='bg-fed col12 grid grid-col-gap-p m-auto max-w-96p print:bg-white print:h-full'>
+	<body class='bg-fed grid grid-col-gap-p grid-columns-12 m-auto max-w-96p print:bg-white print:h-full'>
 		<?php require('fragments/header.php'); ?>
 
-		<div class='col-span-12 col12 grid h-50p items-baseline mobile:h-auto pt-8p'>
-			<div class='col-span-2 mobile:hidden no-select text-s'>(01)</div>
+		<section class='col-span-12 grid grid-columns-12 h-50p items-baseline mobile:h-auto pt-8p'>
+			<aside class='col-span-2 mobile:hidden no-select text-s'>(01)</aside>
 
-			<section class='col-span-10 mobile:col-span-12'>
+			<div class='col-span-10 mobile:col-span-12'>
 				<?php require('fragments/experience.php'); ?>
-			</section>
-		</div>
+			</div>
+		</section>
 
-		<div class='col-span-12 col12 grid h-30p items-baseline pt-8p mobile:h-auto'>
-			<div class='col-span-2 mobile:hidden no-select text-s'>(02)</div>
+		<section class='col-span-12 grid grid-columns-12 h-30p items-baseline mobile:h-auto pt-8p'>
+			<aside class='col-span-2 mobile:hidden no-select text-s'>(02)</aside>
 
-			<section class='col-span-10 mobile:col-span-12'>
+			<div class='col-span-10 mobile:col-span-12'>
 				<?php require('fragments/foss.php'); ?>
-			</section>
-		</div>
+			</div>
+		</section>
 
-		<div class='col-span-12 col12 grid items-baseline pt-8p'>
-			<div class='col-span-5 mobile:hidden no-select text-s'>(03)</div>
+		<section class='col-span-12 grid grid-columns-12 items-baseline pt-8p'>
+			<aside class='col-span-5 mobile:hidden no-select text-s'>(03)</aside>
 
 			<?php require('fragments/skills.php'); ?>
-		</div>
+		</section>
 
 		<?php require('fragments/footer.php'); ?>
 	</body>

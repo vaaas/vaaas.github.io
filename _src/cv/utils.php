@@ -5,7 +5,7 @@ class Component {
 	private string $component;
 
 	public function __construct(string $component) {
-		$this->component = './components/' . $component . '/php';
+		$this->component = __DIR__ . '/components/' . $component . '.php';
 	}
 
 	public function render(array $args = []): string {

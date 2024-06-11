@@ -1,5 +1,4 @@
 * { all: unset; }
-head { display: none; }
 
 :root {
 	--p: 0.5rem;
@@ -18,14 +17,14 @@ html { font-family: 'Playfair Display', serif; }
 .border-top-1px { border-top-width: 1px; }
 .border-top-black { border-top-color: black; }
 .border-top-solid { border-top-style: solid; }
+.children\:block > * { display: block; }
 .col-span-10 { grid-column: span 10; }
 .col-span-12 { grid-column: span 12; }
 .col-span-2 { grid-column: span 2; }
 .col-span-3 { grid-column: span 3; }
 .col-span-5 { grid-column: span 5; }
 .col-span-7 { grid-column: span 7; }
-.col12 { grid-template-columns: repeat(12, 1fr); }
-.col7 { grid-template-columns: repeat(7, 1fr); }
+.columns-2 { columns: 2; }
 .cursor-pointer { cursor: pointer; }
 .flex { display: flex; }
 .flex-col { flex-direction: column; }
@@ -34,12 +33,14 @@ html { font-family: 'Playfair Display', serif; }
 .gap-2p { gap: calc(2 * var(--p)); }
 .grid { display: grid; }
 .grid-col-gap-p { grid-column-gap: var(--p); }
+.grid-columns-12 { grid-template-columns: repeat(12, 1fr); }
+.grid-columns-7 { grid-template-columns: repeat(7, 1fr); }
 .grid-row-gap-p6 { grid-row-gap: calc(6 * var(--p)); }
 .h-14p { height: calc(14 * var(--p)); }
 .h-30p { height: calc(30 * var(--p)); }
 .h-50p { height: calc(50 * var(--p)); }
+.hidden { display: none; }
 .hover\:underline:hover { text-decoration: underline; }
-.invisible { visibility: hidden; }
 .items-baseline { align-items: baseline; }
 .justified { text-align: justify; }
 .justify-between { justify-content: space-between; }
@@ -61,7 +62,6 @@ html { font-family: 'Playfair Display', serif; }
 .text-slightly-faded { color: var(--color-slightly-faded); }
 .text-sm { font-size: calc(1.75 * var(--p)); }
 .w-half { width: 50%; }
-.hidden { display: none; }
 
 @media screen {
 	html { font-size: 20px; }
@@ -70,12 +70,11 @@ html { font-family: 'Playfair Display', serif; }
 @media print {
 	html { font-size: 12px; }
 	.print\:bg-white { background: var(--color-white); }
+	.print\:block { display: block; }
 	.print\:h-full { height: 100vh; }
+	.print\:hidden { display: none; }
 	.print\:mt-auto { margin-top: auto; }
 	.print\:p-0 { padding: 0; }
-	.print\:visible { visibility: visible; }
-	.print\:block { display: block; }
-	.print\:hidden { display: none; }
 }
 
 @media screen and (max-width: 60rem) {

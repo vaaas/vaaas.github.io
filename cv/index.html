@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang='en' class='p-2p print:p-0'>
-	<head>
+	<head class='hidden'>
 		<meta charset='utf-8'/>
 		<title>Vasileios Pasioliokis - Software Developer</title>
 		<meta name='viewport' content='width=device-width, initial-scale=1'/>
 		<meta name='description' content='CV of Vasileios Pasialiokis, senior full-stack engineer, Javascript, Typescript, Vue, PHP, Laravel'/>
 		<style>
 			* { all: unset; }
-head { display: none; }
 
 :root {
 	--p: 0.5rem;
@@ -26,14 +25,14 @@ html { font-family: 'Playfair Display', serif; }
 .border-top-1px { border-top-width: 1px; }
 .border-top-black { border-top-color: black; }
 .border-top-solid { border-top-style: solid; }
+.children\:block > * { display: block; }
 .col-span-10 { grid-column: span 10; }
 .col-span-12 { grid-column: span 12; }
 .col-span-2 { grid-column: span 2; }
 .col-span-3 { grid-column: span 3; }
 .col-span-5 { grid-column: span 5; }
 .col-span-7 { grid-column: span 7; }
-.col12 { grid-template-columns: repeat(12, 1fr); }
-.col7 { grid-template-columns: repeat(7, 1fr); }
+.columns-2 { columns: 2; }
 .cursor-pointer { cursor: pointer; }
 .flex { display: flex; }
 .flex-col { flex-direction: column; }
@@ -42,12 +41,14 @@ html { font-family: 'Playfair Display', serif; }
 .gap-2p { gap: calc(2 * var(--p)); }
 .grid { display: grid; }
 .grid-col-gap-p { grid-column-gap: var(--p); }
+.grid-columns-12 { grid-template-columns: repeat(12, 1fr); }
+.grid-columns-7 { grid-template-columns: repeat(7, 1fr); }
 .grid-row-gap-p6 { grid-row-gap: calc(6 * var(--p)); }
 .h-14p { height: calc(14 * var(--p)); }
 .h-30p { height: calc(30 * var(--p)); }
 .h-50p { height: calc(50 * var(--p)); }
+.hidden { display: none; }
 .hover\:underline:hover { text-decoration: underline; }
-.invisible { visibility: hidden; }
 .items-baseline { align-items: baseline; }
 .justified { text-align: justify; }
 .justify-between { justify-content: space-between; }
@@ -77,10 +78,11 @@ html { font-family: 'Playfair Display', serif; }
 @media print {
 	html { font-size: 12px; }
 	.print\:bg-white { background: var(--color-white); }
+	.print\:block { display: block; }
 	.print\:h-full { height: 100vh; }
+	.print\:hidden { display: none; }
 	.print\:mt-auto { margin-top: auto; }
 	.print\:p-0 { padding: 0; }
-	.print\:visible { visibility: visible; }
 }
 
 @media screen and (max-width: 60rem) {
@@ -103,148 +105,150 @@ html { font-family: 'Playfair Display', serif; }
 		<link rel='icon' href='data:image/png;base64,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gywCQADAH6qsrIzp06cn7It8Us3ChQtr/c6FIkAEIAAg5Sxbtiwee+yxjN7H4cOHx0cffeRgiwAQABARsWPHjrjnnnvqxL7+7Gc/89FAEQCHzJ1EyGiLFy+ONWvWJP1xmjdvHtddd120bds2mjVrFtnZ2bF///7YunVrvP/++zF79uykv07/xBNPxLXXXhtnnXWWA3+EERDhZkEIAEhbZWVl8ZOf/CSpjzFp0qTo0qVLtGvXLho1avSNf27s2LGxbt26eOmll2LKlClJ257Zs2fHtGnT4qijXNwTAfDt/JQgYy1btiw2bNiQlLXHjBkTa9asiVtvvTXOOuusb33yj4jIycmJs846K+6999546623YvDgwUnZrqeeeiref/99Bz9BEeDlAAQApJnKysqYPXt2wtctKCiIV155JUaPHh0nnHDCYa3Rvn37mDJlSsydOzcp+75kyRIngAgAAUDd9OGHH8arr76a0DUvueSSWLRoUVxwwQVH/g/vqKOiT58+sXTp0igsLEzods6YMSPKysqcBCIABAB1z/LlyxO6Xvv27ePBBx+Mk08+OaHrdurUKZ566qmErrl169YoKSlxEogAEADULQcPHowXXnghoWvOmjXrsC/5f5eioqJ45plnErrm22+/7UQQASAAqFs+++yzWLZsWcLWe/DBB6NTp05J3eZevXrFnXfembD1nnvuuThw4ICTQQSAAKDu+PDDDxO2Vvv27aNPnz5J3+asrKwYNGhQwtZbs2ZNxt76WASAAICvlchb4o4dOzaaNm1aI9vdpk2bmDRpUsLW27Rpk5NBBIAAoO744IMPErZWIt7xXx3dunVL2FqbN292MogAEADUDVVVVfHGG28kZK1rrrkmWrRoUaPbX1hYGO3bt0/IWhs3bnRCiAAQANQNe/bsSdhH4Hr27Fnj29+gQYMYOHBgQtZav369E0IEgACgbigvL0/YWieeeGKt7EOibgzkTYAiAAQAdcb+/fsTtlazZs1qZR+aN2+ekHXee++9qKqqclKIABAAZL6KioqErdWgQYNa2YdEPe7WrVvdC0AEgACgbqhXr17C1qqsrKyVfUjkk7avBRYBIACoExL5W/vu3btrZR8S9bhFRUUJDSJEAAIA6kQAbNmypVb24dNPP03IOq1bt3ZCiAAQANQNOTk5kZubm5C1fvvb39bKPixZsiQh6yT6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qqriiy++iP/4j/+ITZs2xaZNm2L9+vWxdOnS+OSTTw55nfbt20fXrl2jsLAwjj/++GjdunWceOKJkZ+fb8iAAIBU8MUXX8SaNWti9erV8dJLL8XKlSuPeM1169bFunXr/s//7927d3Tv3j06duwYp512WsZ+6x8gACAlff7551FSUhK/+tWv4oknnqixx120aFEsWrToq/++8847o1u3bnH66afHMccc48AAAgASrbKyMtauXRvPP/98TJ8+PSW2adq0aTFt2rSIiBgxYkT07ds3TjvttDjqKO/bBRLDTxPqrD179sTixYvjmmuuic6dO6fMk/8fmzp1anTu3DmGDx8eK1asiP379zt4gACA6tq/f38sX748rrrqqujXr9//uvSeyv7pn/4pevXqFddcc00sX748KisrHUxAAMB3OXjwYKxatSr+5m/+Jnr37h3Lli1Ly/14+eWXo3fv3vGjH/3oa99QCCAA4L99+eWXMXny5OjevXssXLgwI/bp8ccfj/POOy8eeeSR2LVrl4MMCAD4w9/6ly9fHn369Ini4uKM3MdRo0bF1VdfHe+8844DDggA2LVrVxQXF0fv3r0z/mtjly5dGpdcckk89dRTUVFR4eADAoC6qbS0NG699daYPHlyndrv22+/Pe6+++7Ytm2bkwAQANQta9asiauuuioWLFhQJ/f/sccei6FDh1brFsWAAIC0tnz58rjooouipKSkTs/h1VdfjZ49e2b8Sx+AAIBYvnx59O7d2yD+W2lpafTr1y9+//vfGwYgAMhMr732mif/b4iAK6+8ss5fEQEEABloxYoV0bdvX4P4Blu3bo2+ffvGhg0bDAMQAGSGjz/+OG644QaDOIQIuPXWW2Pr1q2GAQgA0tu2bdvi9ttvj9LSUsM4BCtXroz77rsv9uzZYxiAACA9VVRUxPjx42Pp0qWGUQ1z586NWbNmRVVVlWGAAID0s3DhwpgzZ45BHIbx48fHm2++aRBQx2UbAenmww8/TLnX/QsLC6NLly7RvHnzyM3NjQYNGkR5eXns2bMnPv3001i8eHFKvf4+cuTI+Od//ufIz893QoEAgNRXXl4ekyZNqtVtKCgoiCFDhsSZZ54ZrVu3jmOPPTby8vIiKyvrG/9OZWVllJWVxebNm2Pjxo2xatWqePjhh2P37t21sg8lJSXxyCOPxJgxY751uwEB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'/>
 	</head>
 
-	<body class='bg-fed col12 grid grid-col-gap-p m-auto max-w-96p print:bg-white print:h-full'>
+	<body class='bg-fed grid grid-col-gap-p grid-columns-12 m-auto max-w-96p print:bg-white print:h-full'>
 		<header class='col-span-12 flex h-14p items-baseline justify-between mobile:block mobile:h-auto'>
 	<h1 class='leading-reset text-huge'>Vasileios Pasialiokis</h1>
 
-	<section class='h-12p mobile:block'>
-		<div class='leading-m'>full-stack developer</div>
-		<a class='block cursor-pointer hover:underline leading-2hp pt-2p' href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a>
-		<a class='block cursor-pointer hover:underline leading-2hp' href='tel:+306955018104'>+30 695 501 8104</a>
-		<a class='block cursor-pointer hover:underline leading-2hp' href='https://github.com/vaaas'>github.com/vaaas</a>
+	<section class='children:block mobile:block'>
+		<div>full-stack developer</div>
+		<a class='cursor-pointer hover:underline leading-2hp pt-2p' href='mailto:pasivasi@outlook.com'>pasivasi@outlook.com</a>
+		<a class='cursor-pointer hover:underline leading-2hp' href='tel:+306955018104'>+30 695 501 8104</a>
+		<a class='cursor-pointer hover:underline leading-2hp' href='https://github.com/vaaas'>github.com/vaaas</a>
 	</section>
 </header>
 
-		<div class='col-span-12 col12 grid h-50p items-baseline mobile:h-auto pt-8p'>
-			<div class='col-span-2 mobile:hidden no-select text-s'>(01)</div>
+		<section class='col-span-12 grid grid-columns-12 h-50p items-baseline mobile:h-auto pt-8p'>
+			<aside class='col-span-2 mobile:hidden no-select text-s'>(01)</aside>
 
-			<section class='col-span-10 mobile:col-span-12'>
+			<div class='col-span-10 mobile:col-span-12'>
 				<div class='flex flex-col gap-2p'>
 	<h2 class='leading-reset text-huge text-lowercase'>Experience.</h2>
 
 	<article class='leading-2hp'>
-		<h3 class='flex flex-wrap gap-2p items-center mobile:gap-p text-lowercase'>
-			<div class='bold'>Kaizen Gaming</div>
-			<div>Frontend Developer</div>
-			<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
-			<div class='no-wrap'>2024 — now</div>
-		</h3>
+	<h3 class='flex flex-wrap gap-2p mobile:gap-p text-lowercase'>
+		<div class='bold'>Kaizen Gaming</div>
+					<div>Frontend Developer</div>
+				<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
+					<div class='no-wrap'>2024 — now</div>
+			</h3>
 
-		<div class='pt-xs text-slightly-faded text-sm justified block'>Live betting team. Frontend development with Vue, Vuex, Tailwind. Composable, functional, fully unit tested code. Mentoring of new employees.</div>
-	</article>
-
-	<article class='leading-2hp'>
-		<h3 class='flex flex-wrap gap-2p items-center mobile:gap-p text-lowercase'>
-			<div class='bold'>Aylo</div>
-			<div>Backend Developer</div>
-			<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
-			<div class='no-wrap'>2023 — 2024</div>
-		</h3>
-
-		<div class='pt-xs text-slightly-faded text-sm justified block'>Maintenance and modernisation of legacy code (Zend Framework 1). Migration to a microservices architecture. Improvements on content search functionality. PHP, Laravel, MySQL, Elasticsearch, React.</div>
-	</article>
+	<div class='text-slightly-faded text-sm justified block'>Live betting team. Frontend development with Vue, Vuex, Tailwind. Composable, functional, fully unit tested code. Mentoring of new employees.</div>
+</article>
 
 	<article class='leading-2hp'>
-		<h3 class='flex flex-wrap gap-2p items-center mobile:gap-p text-lowercase'>
-			<div class='bold'>Phenometry</div>
-			<div>Full-stack Developer</div>
-			<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
-			<div class='no-wrap'>2022 — 2023</div>
-		</h3>
+	<h3 class='flex flex-wrap gap-2p mobile:gap-p text-lowercase'>
+		<div class='bold'>Aylo</div>
+					<div>Backend Developer</div>
+				<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
+					<div class='no-wrap'>2023 — 2024</div>
+			</h3>
 
-		<div class='block justified pt-xs text-slightly-faded text-sm'>Full-stack development in node.js, Express, Typescript, Vue, PostgreSQL. Significant refactoring of legacy code. 0% → 80% test coverage. Optimisation and bundle size reduction. Mentoring of new employees. Implementation of Phi for tablet and pen interfaces. Integration of Stripe payments.</div>
-	</article>
+	<div class='text-slightly-faded text-sm justified block'>Maintenance and modernisation of legacy code (Zend Framework 1). Migration to a microservices architecture. Improvements on content search functionality. PHP, Laravel, MySQL, Elasticsearch, React.</div>
+</article>
 
 	<article class='leading-2hp'>
-		<h3 class='flex flex-wrap gap-2p items-center mobile:gap-p text-lowercase'>
-			<div class='bold'>Doppler SA</div>
-			<div>Full-stack Developer, DevOps</div>
-			<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
-			<div class='no-wrap'>2020 — 2022</div>
-		</h3>
+	<h3 class='flex flex-wrap gap-2p mobile:gap-p text-lowercase'>
+		<div class='bold'>Phenometry</div>
+					<div>Full-stack Developer</div>
+				<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
+					<div class='no-wrap'>2022 — 2023</div>
+			</h3>
 
-		<div class='block justified pt-xs text-slightly-faded text-sm'>Full-stack development in PHP, Laravel, Lumen, Vue, SQL Server, MariaDB. Architected the CI/CD pipelines. Development of order automation, BI analytics, and internal tooling extending the company ERP. Mentoring of new employees.</div>
-	</article>
+	<div class='text-slightly-faded text-sm justified block'>Full-stack development in node.js, Express, Typescript, Vue, PostgreSQL. Significant refactoring of legacy code. 0% → 80% test coverage. Optimisation and bundle size reduction. Mentoring of new employees. Implementation of Phi for tablet and pen interfaces. Integration of Stripe payments.</div>
+</article>
+
+	<article class='leading-2hp'>
+	<h3 class='flex flex-wrap gap-2p mobile:gap-p text-lowercase'>
+		<div class='bold'>Doppler SA</div>
+					<div>Full-stack Developer, DevOps</div>
+				<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
+					<div class='no-wrap'>2020 — 2022</div>
+			</h3>
+
+	<div class='text-slightly-faded text-sm justified block'>Full-stack development in PHP, Laravel, Lumen, Vue, SQL Server, MariaDB. Architected the CI/CD pipelines. Development of order automation, BI analytics, and internal tooling extending the company ERP. Mentoring of new employees.</div>
+</article>
 </div>
-			</section>
-		</div>
+			</div>
+		</section>
 
-		<div class='col-span-12 col12 grid h-30p items-baseline pt-8p mobile:h-auto'>
-			<div class='col-span-2 mobile:hidden no-select text-s'>(02)</div>
+		<section class='col-span-12 grid grid-columns-12 h-30p items-baseline mobile:h-auto pt-8p'>
+			<aside class='col-span-2 mobile:hidden no-select text-s'>(02)</aside>
 
-			<section class='col-span-10 mobile:col-span-12'>
+			<div class='col-span-10 mobile:col-span-12'>
 				<div class='flex flex-col gap-2p'>
 	<h2 class='leading-reset text-huge text-lowercase'>Open-source Contributions.</h2>
 
 	<article class='leading-2hp'>
-		<h3 class='flex flex-wrap gap-2p items-center mobile:gap-p text-lowercase'>
-			<div class='bold'>Mattermost</div>
-			<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
-			<div>2022</div>
-		</h3>
+	<h3 class='flex flex-wrap gap-2p mobile:gap-p text-lowercase'>
+		<div class='bold'>Mattermost</div>
+				<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
+					<div class='no-wrap'>2022</div>
+			</h3>
 
-		<div class='block justified pt-xs text-slightly-faded text-sm'>Paid contributor for the Electron application. Development in React, Typescript.</div>
-	</article>
-
-	<article class='leading-2hp'>
-		<h3 class='flex flex-wrap gap-2p items-center mobile:gap-p text-lowercase'>
-			<div class='bold'>Organisation for Transformative Works</div>
-			<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
-			<div class='no-wrap'>2015 — 2021</div>
-		</h3>
-
-		<div class='block justified pt-xs text-slightly-faded text-sm'>Founded and coordinated the Greek translation team. Content management through Wordpress. Development of internal tooling in jQuery. Wrangling and management of metadata ontologies.</div>
-	</article>
+	<div class='text-slightly-faded text-sm justified block'>Paid contributor for the Electron application. Development in React, Typescript.</div>
+</article>
 
 	<article class='leading-2hp'>
-		<h3 class='flex flex-wrap gap-2p items-center mobile:gap-p text-lowercase'>
-			<div class='bold'>Assorted &amp; Hobbyist Projects</div>
-			<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
-		</h3>
+	<h3 class='flex flex-wrap gap-2p mobile:gap-p text-lowercase'>
+		<div class='bold'>Organisation for Transformative Works</div>
+				<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
+					<div class='no-wrap'>2015 — 2021</div>
+			</h3>
 
-		<div class='block justified pt-xs text-slightly-faded text-sm'>Video game development in Python, PyGame, Panda3d. Native Linux application development in GTK3, Qt4. Embedded systems programming in ChibiOS. Compiler research (Scheme Lisp → Javascript).
-	</article>
+	<div class='text-slightly-faded text-sm justified block'>Founded and coordinated the Greek translation team. Content management through Wordpress. Development of internal tooling in jQuery. Wrangling and management of metadata ontologies.</div>
+</article>
+
+	<article class='leading-2hp'>
+	<h3 class='flex flex-wrap gap-2p mobile:gap-p text-lowercase'>
+		<div class='bold'>Assorted &amp; Hobbyist Projects</div>
+				<div class="border-top-1px border-top-black border-top-solid flexible line mobile:hidden relative"></div>
+			</h3>
+
+	<div class='text-slightly-faded text-sm justified block'>Video game development in Python, PyGame, Panda3d. Native Linux application development in GTK3, Qt4. Embedded systems programming in ChibiOS. Compiler research (Scheme Lisp → Javascript).</div>
+</article>
 </div>
-			</section>
-		</div>
+			</div>
+		</section>
 
-		<div class='col-span-12 col12 grid items-baseline pt-8p'>
-			<div class='col-span-5 mobile:hidden no-select text-s'>(03)</div>
+		<section class='col-span-12 grid grid-columns-12 items-baseline pt-8p'>
+			<aside class='col-span-5 mobile:hidden no-select text-s'>(03)</aside>
 
-			<section class='col-span-7 col7 grid grid-col-gap-p mobile:col-span-12 mobile:flex mobile:flex-wrap mobile:gap-p text-lowercase'>
+			<section class='col-span-7 grid grid-col-gap-p grid-columns-7 mobile:col-span-12 mobile:flex mobile:flex-wrap mobile:gap-p text-lowercase'>
 	<article class='col-span-3 mobile:max-w-18p'>
 		<div class='block bold leading-reset'>Programming languages</div>
 
-		<div class='flex flex-wrap justify-between leading-2hp pt-2p text-slightly-faded text-sm'>
-			<div class='w-half'>Typescript</div>
-			<div class='w-half'>Javascript</div>
-			<div class='w-half'>PHP</div>
-			<div class='w-half'>C</div>
-			<div class='w-half'>Python</div>
-			<div class='w-half'>Elisp</div>
-			<div class='w-half'>Scheme</div>
-			<div class='w-half'>(S)CSS</div>
-			<div class='w-half'>bash</div>
-			<div class='w-half'>SQL</div>
+		<div class='block children:block columns-2 leading-2hp pt-2p text-slightly-faded text-sm'>
+			<div>Typescript</div>
+			<div>Javascript</div>
+			<div>PHP</div>
+			<div>C</div>
+			<div>Python</div>
+			<div>Elisp</div>
+			<div>Scheme</div>
+			<div>(S)CSS</div>
+			<div>bash</div>
+			<div>SQL</div>
 		</div>
 	</article>
+
+	<article class='mobile:hidden'></article>
 
 	<article class='col-span-3 mobile:max-w-18p'>
 		<div class='block bold leading-reset'>Tooling &amp; libraries</div>
 
-		<div class='flex flex-wrap justify-between leading-2hp pt-2p text-slightly-faded text-sm'>
-			<div class='w-half'>Vue</div>
-			<div class='w-half'>React</div>
-			<div class='w-half'>Tailwind</div>
-			<div class='w-half'>Laravel</div>
-			<div class='w-half'>Docker</div>
-			<div class='w-half'>Linux</div>
-			<div class='w-half'>git</div>
-			<div class='w-half'>node.js</div>
-			<div class='w-half'>AWS</div>
-			<div class='w-half'>Nuxt</div>
-			<div class='w-half'>Vuex</div>
-			<div class='w-half'>Websockets</div>
+		<div class='block children:block columns-2 leading-2hp pt-2p text-slightly-faded text-sm'>
+			<div>Vue</div>
+			<div>React</div>
+			<div>Tailwind</div>
+			<div>Laravel</div>
+			<div>Docker</div>
+			<div>Linux</div>
+			<div>git</div>
+			<div>node.js</div>
+			<div>AWS</div>
+			<div>Nuxt</div>
+			<div>Vuex</div>
+			<div>Websockets</div>
 		</div>
 
 	</article>
@@ -252,18 +256,22 @@ html { font-family: 'Playfair Display', serif; }
 	<article class='col-span-3 mobile:max-w-18p mobile:p-0 pt-3p'>
 		<div class='block bold leading-reset'>Spoken languages</div>
 
-		<div class='block leading-2hp pt-2p text-slightly-faded text-sm'>
-			<div class='block'>Greek (native)</div>
-			<div class='block'>English (fluent)</div>
+		<div class='block children:block leading-2hp pt-2p text-slightly-faded text-sm'>
+			<div>Greek (native)</div>
+			<div>English (fluent)</div>
 		</div>
 	</article>
 </section>
-		</div>
+		</section>
 
 		<footer class='col-span-12 flex justify-between mobile:hidden print:mt-auto print:p-0 pt-8p text-lowercase text-s'>
-			<div></div>
-			<a class='cursor-pointer hover:underline invisible print:visible' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
-			<div class='no-select'>Page 1/1</div>
-		</footer>
+	<div></div>
+
+	<a class='cursor-pointer hover:underline print:hidden' href='en.pdf'>This document is available in PDF</a>
+
+	<a class='cursor-pointer hidden hover:underline print:block' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
+
+	<div class='no-select'>Page 1/1</div>
+</footer>
 	</body>
 </html>

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case "$1" in
+	make)
+		\rm -v cv/index.html
+		php _src/cv/index.php > cv/index.html
+		;;
+	dev:cv)
+		php -S localhost:8000 _src/cv/index.php
+		;;
+esac

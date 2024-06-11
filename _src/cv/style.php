@@ -61,6 +61,7 @@ html { font-family: 'Playfair Display', serif; }
 .text-slightly-faded { color: var(--color-slightly-faded); }
 .text-sm { font-size: calc(1.75 * var(--p)); }
 .w-half { width: 50%; }
+.hidden { display: none; }
 
 @media screen {
 	html { font-size: 20px; }
@@ -73,6 +74,8 @@ html { font-family: 'Playfair Display', serif; }
 	.print\:mt-auto { margin-top: auto; }
 	.print\:p-0 { padding: 0; }
 	.print\:visible { visibility: visible; }
+	.print\:block { display: block; }
+	.print\:hidden { display: none; }
 }
 
 @media screen and (max-width: 60rem) {

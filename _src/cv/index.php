@@ -39,10 +39,6 @@ require('utils.php');
 			<?php require('fragments/skills.php'); ?>
 		</div>
 
-		<footer class='col-span-12 flex justify-between mobile:hidden print:mt-auto print:p-0 pt-8p text-lowercase text-s'>
-			<div></div>
-			<a class='cursor-pointer hover:underline invisible print:visible' href='https://vaaas.github.io/cv'>This document is available online at vaaas.github.io/cv</a>
-			<div class='no-select'>Page 1/1</div>
-		</footer>
+		<?php require('fragments/footer.php'); ?>
 	</body>
 </html>

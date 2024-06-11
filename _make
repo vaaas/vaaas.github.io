@@ -1,4 +1,0 @@
-#!/bin/sh
-
-\rm cv/index.html
-php _src/cv/index.php > cv/index.html

@@ -8,4 +8,8 @@ case "$1" in
 	dev:cv)
 		php -S localhost:8000 _src/cv/index.php
 		;;
+	*)
+		echo 'supported commands:'
+		echo '- make - builds the site'
+		echo '- dev:cv - local development server for the cv'
 esac
